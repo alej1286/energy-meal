@@ -341,7 +341,7 @@ function Contact({ signOut }) {
         </div>
        </div>
       </div> */}
-      <Button onClick={signOut}>Sign Out</Button>
+      {/* <Button onClick={signOut}>Sign Out</Button> */}
     </Flex>
   );
 }
