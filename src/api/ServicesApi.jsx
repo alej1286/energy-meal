@@ -23,6 +23,6 @@ async function ServicesApi() {
 export function useFetchServicesApi() {
   return useQuery({
     queryKey: ["services"],
-    ...ServicesApi
+    queryFn: ServicesApi
   });
 }

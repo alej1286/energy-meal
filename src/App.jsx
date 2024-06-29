@@ -8,7 +8,7 @@ import Authe from "./components/Authe";
 //import { Auth } from "aws-amplify";
 import Home from "./components/Home";
 import About from "./components/About";
-//import Services from "./components/Services";
+import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -44,7 +44,7 @@ function App({ signOut, user }) {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/services" element={<Services />} /> */}
+          <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/instagram" element={<Instagram />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />

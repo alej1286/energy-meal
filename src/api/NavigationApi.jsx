@@ -15,7 +15,7 @@ async function NavigationApi() {
     const allNavigation = response?.data?.listNavigations?.items;
     
     if (!allNavigation) return null;
-    console.log("allNavigation:",allNavigation)
+    //console.log("allNavigation:",allNavigation)
     //return allNavigation.reverse();
     return sortNavigationArray(allNavigation);
     //return allNavigation;
