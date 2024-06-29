@@ -1,4 +1,3 @@
-import React from "react";
 import { Disclosure } from "@headlessui/react";
 //import { ChevronUpIcon } from '@heroicons/react/solid';
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -26,13 +25,13 @@ function PrivacyPolicy() {
                   />
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-4 pt-4 pb-2 text-lg text-gray-500 text-justify">
-                  Welcome to "Ailen Hair Stylist" web site. We are committed to
+                  Welcome to Energy Meals web site. We are committed to
                   respecting your privacy and protecting your personal
                   information. This Privacy Policy explains how we collect, use,
                   disclose, and safeguard your information when you use our
                   services through our website or any related applications,
                   products, or services (collectively referred to as the
-                  "Service").
+                  Service).
                 </Disclosure.Panel>
               </>
             )}
@@ -177,7 +176,7 @@ function PrivacyPolicy() {
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-50">
-                  <span>Children's Privacy</span>
+                  <span>Childrens Privacy</span>
                   <Bars3Icon
                     className={`${
                       open ? "transform rotate-180" : ""

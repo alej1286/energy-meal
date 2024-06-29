@@ -6,9 +6,9 @@ const About = () => {
     >
       <div className="w-full md:w-1/2 p-0 md:p-8 flex items-center justify-center ">
         <img
-          src="https://cdn.hihello.me/v/5bd5c5df-9e37-4af1-b3e2-00f5daf1018a.png-large-preserve-ratio"
+          src="https://energymeal-storage-8bfb8df432927-dev.s3.amazonaws.com/public/dish1.jpeg"
           alt="About Us"
-          className="w-full h-auto object-cover rounded-tr-full rounded-bl-ful"
+          className="w-full h-5/6 object-cover rounded-tr-full rounded-bl-ful"
         />
       </div>
 
@@ -18,13 +18,10 @@ const About = () => {
           About Us
           </h1>
           <p className="text-lg md:text-xl text-gray-700 mb-8">
-            Our hair stylists have years of experience and a passion for
-            creating beautiful hairstyles.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse modi impedit laboriosam consectetur unde! Quos.
             <br />
             <br />
-            We stay up to date with the latest trends and techniques to ensure
-            you receive the best service. Visit us today and experience the
-            difference!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae blanditiis neque sed omnis, repellat nostrum!
           </p>
         </div>
       </div>

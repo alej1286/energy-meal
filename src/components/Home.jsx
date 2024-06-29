@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { getProperties } from 'aws-amplify/storage';
 
 function Home() {

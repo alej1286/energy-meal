@@ -94,7 +94,7 @@ function Contact({ signOut }) {
                 justifyContent={"start"}
                 gap="1rem"
               >
-                <a href="tel:+17867949162"> +1 (786) 794 9162 </a>
+                <a href="tel:+13057858903"> +1(305)785-8903</a>
               </Button>
               <Button
                 color={tokens.colors.neutral[40]}
@@ -102,8 +102,8 @@ function Contact({ signOut }) {
                 gap="1rem"
               >
                 <IconEmail color={tokens.colors.blue[40]} />{" "}
-                <a href={"mailto:ailenmejiastravieso@gmail.com"}>
-                  ailenmejiastravieso@gmail.com
+                <a href={"mailto:rauldiazmirabal3@gmail.com"}>
+                rauldiazmirabal3@gmail.com
                 </a>
               </Button>
               <Button

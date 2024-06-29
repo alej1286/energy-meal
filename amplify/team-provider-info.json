@@ -17,6 +17,9 @@
       },
       "auth": {
         "energymeal4380fba7": {}
+      },
+      "storage": {
+        "s3energymealstorage8bfb8df4": {}
       }
     }
   }
