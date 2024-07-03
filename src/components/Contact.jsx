@@ -14,6 +14,7 @@ import {
   FieldGroupIcon,
   Icon,
   Link,
+  Message,
 } from "@aws-amplify/ui-react";
 import { BsTwitter, BsJournal, BsYoutube } from "react-icons/bs";
 //import { API } from "aws-amplify";
@@ -21,6 +22,7 @@ import { generateClient  } from "aws-amplify/api";
 import { createCandidate } from "../graphql/mutations";
 //import { InstagramEmbed } from 'react-social-media-embed';
 import { post } from '@aws-amplify/api';
+import { useState } from 'react';
 
 const IconEmail = () => {
   return (
@@ -33,6 +35,7 @@ const IconEmail = () => {
 function Contact({ signOut }) {
   const { tokens } = useTheme();
   const client = generateClient();
+  const [showToast, setShowToast] = useState(false);
   
   
   const handleFormSubmit = async (e) => {
@@ -42,7 +45,6 @@ function Contact({ signOut }) {
  const email = e.target[1].value;
  const message = e.target[2].value;
 
- console.log(name,email,message);
     try {
       const restOperation = await post({
         apiName:"contactFormApi",
@@ -53,12 +55,19 @@ function Contact({ signOut }) {
       })
       
       
-    const {body} = await restOperation.response;
+   /*  const {body} = await restOperation.response;
     const response = await body.json();
     console.log("POST call Succeeded");
-    console.log(response);
+    console.log(response); */
+
+    // Clear the form
+    e.target.reset();
     
-    
+    // Show the toast
+    setShowToast(true);
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => setShowToast(false), 3000);
     } catch (e) {
 
     console.log("POST call failed: ",JSON.parse(e.response.body))  
@@ -90,6 +99,28 @@ function Contact({ signOut }) {
       height="100vh"
       className="mt-24"
     >
+      
+     {showToast && 
+        <Flex
+        position="fixed"
+        width="100vw"
+        top="56px"
+        justifyContent="center"
+        alignItems="flex-start"
+      >
+        <Message 
+          colorTheme="success"
+          heading="success"
+          overflow= "hidden"
+          margin= "0 0 6px"
+          style={{borderRadius:"6px 6px 6px 6px",padding: "10px 10px 10px 10px"}}
+        >
+          Your message has been sent
+        </Message>
+      </Flex>
+      }
+      
+      
       <Card
         padding={{ large: tokens.space.xxxl }}
         variation="elevated"
