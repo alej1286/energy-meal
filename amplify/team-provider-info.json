@@ -13,13 +13,20 @@
     },
     "categories": {
       "api": {
-        "energymeal": {}
+        "energymeal": {},
+        "contactFormApi": {}
       },
       "auth": {
         "energymeal4380fba7": {}
       },
       "storage": {
         "s3energymealstorage8bfb8df4": {}
+      },
+      "function": {
+        "contactHandlerFunction": {
+          "deploymentBucketName": "amplify-energymeal-dev-32927-deployment",
+          "s3Key": "amplify-builds/contactHandlerFunction-32366c737a72515a4534-build.zip"
+        }
       }
     }
   }
