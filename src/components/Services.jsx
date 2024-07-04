@@ -22,7 +22,6 @@ import {
   //Loader,
   //Icon,
 } from "@aws-amplify/ui-react";
-//import { Auth } from "aws-amplify";
 import { fetchUserAttributes, fetchAuthSession } from 'aws-amplify/auth';
 import {
   AddService,
