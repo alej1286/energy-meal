@@ -1,7 +1,7 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "energymeal4380fba7_identitypool_4380fba7",
+    "identityPoolName": "energymeal8f1ce6c0_identitypool_8f1ce6c0",
     "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "energy4380fba7",
     "userPoolName": "energymeal4380fba7_userpool_4380fba7",
@@ -36,7 +36,7 @@
     "sharedId": "4380fba7",
     "resourceName": "energymeal4380fba7",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
       "email"
     ],
@@ -57,6 +57,24 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [],
+    "hostedUI": true,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": {},
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "hostedUIDomainName": "energymeal8c8456bd-8c8456bd",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "authProviders": [
+      "accounts.google.com"
+    ],
+    "thirdPartyAuth": true,
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:5173/\",\"http://localhost:5173/\"],\"LogoutURLs\":[\"http://localhost:5173/\"]}"
   }
 }

@@ -17,7 +17,9 @@
         "contactFormApi": {}
       },
       "auth": {
-        "energymeal4380fba7": {}
+        "energymeal4380fba7": {
+          "googleClientId": "1043601713237-dsj7mtir5hvfch24niue0ab66mlf83i7.apps.googleusercontent.com"
+        }
       },
       "storage": {
         "s3energymealstorage8bfb8df4": {}

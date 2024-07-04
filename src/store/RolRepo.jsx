@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { devtools } from 'zustand/middleware';
@@ -6,7 +7,8 @@ import { devtools } from 'zustand/middleware';
 export const useRolReposStore = create(devtools(
   persist(
     (set,get) => ({
-      rol: "",
+      //rol: "",
+      rol: [],
       setRol: (group) => set((state) => ({ rol: group })),
     }),
     {

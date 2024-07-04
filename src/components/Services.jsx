@@ -23,7 +23,7 @@ import {
   //Icon,
 } from "@aws-amplify/ui-react";
 //import { Auth } from "aws-amplify";
-import { fetchUserAttributes } from 'aws-amplify/auth';
+import { fetchUserAttributes, fetchAuthSession } from 'aws-amplify/auth';
 import {
   AddService,
   EditService,
@@ -102,16 +102,20 @@ function Services() {
   const [user, setUser] = useState({});
   const [update, setUpdate] = useState(false);
   const [updateServices, setUpdateServices] = useState();
+
   async function checkUser() {
+    if (Object.keys(user).length !== 0){
     try {
-      //const data = await Auth.currentUserPoolUser();
-      const data = await fetchUserAttributes();
-      const userInfo = { username: data.username, ...data.attributes };
-      setUser(userInfo);
-      console.log("data:",data);//checking user
-      console.log(userInfo);//checking user
-    } catch (err) {
-      console.log("error: ", err);
+
+        //const data = await Auth.currentUserPoolUser();
+        const data = await fetchUserAttributes();
+        const userInfo = { username: data.username, ...data.attributes };
+        setUser(userInfo);
+        console.log("data:",data);//checking user
+        console.log(userInfo);//checking user
+      } catch (err) {
+        console.log("error: ", err);
+      }
     }
   }
   const addServiceOverrides = {
@@ -262,11 +266,11 @@ function Services() {
           service={serviceToUpdate}
         />
       )} */}
-      {rol === "Administrator" && isAddingService && (
+      {rol.includes("admin") && isAddingService && (
         <AddService overrides={addServiceOverrides} />
       )}
 
-      {rol === "Administrator" && isEditingService && (
+      {rol.includes("admin") && isEditingService && (
         <EditService
           overrides={editServiceOverrides}
           service={serviceToUpdate}
@@ -302,7 +306,7 @@ function Services() {
               },
               "Frame 418": {
                 /* display: user.username === "alej1286" ? "flex" : "none", */
-                display: rol === "Administrator" ? "flex" : "none",
+                display: rol.includes("admin") ? "flex" : "none",
               },
               EditButton: {
                 onClick: () => {

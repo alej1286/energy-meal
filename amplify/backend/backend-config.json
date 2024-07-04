@@ -52,7 +52,9 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE"
+        ],
         "usernameAttributes": [
           "EMAIL"
         ],
@@ -72,6 +74,14 @@
     }
   },
   "parameters": {
+    "AMPLIFY_auth_energymeal4380fba7_googleClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "energymeal4380fba7"
+        }
+      ]
+    },
     "AMPLIFY_function_contactHandlerFunction_deploymentBucketName": {
       "usedBy": [
         {

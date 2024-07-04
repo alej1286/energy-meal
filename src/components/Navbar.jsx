@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 //import { Auth } from 'aws-amplify';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { useRolReposStore } from './../store/RolRepo';
+import { fetchAuthSession } from 'aws-amplify/auth';
 
 
 /* const navigation = [
@@ -39,30 +40,30 @@ const classNameFuncSmall = ({ isActive }) => (isActive ? 'no-underline bg-gray-9
 
 export default function Navbar(props) {
   const [navigation, setNavigation] = useState([])
-  const [group, setGroup] = useState('')
   const {data, isLoading, isSuccess } = useFetchNavigationApi()
+  const { rol, setRol } = useRolReposStore();
   const { route, signOut } = useAuthenticator((context) => [
     context.route,
     context.signOut,
   ]);
   const navigate = useNavigate();
-  const { rol } = useRolReposStore();
-  const setRol = useRolReposStore((state) => state.setRol)
   
   useEffect(() => {
     console.log("route:",route)
-    console.log("rol:",rol)
-    let groupname = null;
     
     
       const checkUser = async() => {
-        //const user2 = await Auth.currentAuthenticatedUser();
+        fetchAuthSession().then((session)=>{
+          
+          setRol(session.tokens.accessToken.payload["cognito:groups"]);
+          if (rol.includes("admin")) {
+            
+            console.log("rol include admin: ",rol)
+          }
+        })
+        
         const user2 = await fetchUserAttributes();
         console.log("user2:",user2)
-        groupname = user2.signInUserSession.accessToken.payload["cognito:groups"][0]
-        setGroup(groupname);
-        console.log("groupname:",groupname)
-        setRol(groupname)
       }
     
       if(route === 'authenticated'){
@@ -74,7 +75,8 @@ export default function Navbar(props) {
 
   function logOut() {
     signOut();
-    setRol("");
+    setRol([]);
+    console.log("setRol([]) called, rol=;",rol);
     navigate("/login");
 
   }
@@ -123,7 +125,8 @@ export default function Navbar(props) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              {route !== 'authenticated' ? (
+              {/* {route !== 'authenticated' ? ( */}
+              {rol.length === 0 ? (
           <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => navigate('/login')}>Login</button>
         ) : (
           <button className='no-underline text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' onClick={() => logOut()}>Logout</button>
